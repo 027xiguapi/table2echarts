@@ -41,6 +41,7 @@ export default {
 .echarts{
   width: 100%;
   height: 100%;
+  position: absolute;
   #myChart{
     width: 100%;
     height: 100%;
