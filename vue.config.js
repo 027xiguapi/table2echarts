@@ -13,8 +13,8 @@ module.exports = {
   },
   configureWebpack: {
     externals:{
-      'echarts': 'echarts'
-
+      'echarts': 'echarts',
+      'handsontable': 'Handsontable'
     }
   }
 }
