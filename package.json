@@ -6,7 +6,7 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "clean": "rimraf dist"
+    "clean": "rimraf dist/"
   },
   "dependencies": {
     "@handsontable/vue": "^4.0.0",
@@ -14,8 +14,6 @@
     "echarts": "^4.2.1",
     "element-ui": "^2.10.1",
     "handsontable": "^7.1.0",
-    "node-sass": "^4.12.0",
-    "sass-loader": "^7.1.0",
     "vue": "^2.6.10",
     "vue-multipane": "^0.9.5",
     "vue-router": "^3.0.3",
@@ -44,7 +42,11 @@
       "plugin:vue/essential",
       "eslint:recommended"
     ],
-    "rules": {},
+    "rules": {
+      "no-console": 0,
+      "space-before-function-paren": [2, "always"],
+      "space-in-parens": [2, "never"]
+    },
     "parserOptions": {
       "parser": "babel-eslint"
     }

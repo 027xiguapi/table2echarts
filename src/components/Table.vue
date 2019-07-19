@@ -1,20 +1,30 @@
 <template>
-  <div class="table">
+  <!-- <div class="table">
     <hot-table :settings="hotSettings"></hot-table>
-  </div>
+  </div> -->
+  <el-container>
+    <el-header height='110' class="header">
+      <Toolbar></Toolbar>
+    </el-header>
+    <el-main>
+      <hot-table :settings="hotSettings"></hot-table>
+    </el-main>
+  </el-container>
 </template>
 
 <script>
 import { HotTable } from '@handsontable/vue';
+import Toolbar from '@/components/Table/Toolbar';
 import Handsontable from 'handsontable';
 import 'handsontable/languages/zh-CN';
 import '../../node_modules/handsontable/dist/handsontable.full.css';
 export default {
   name: 'Table',
   components: {
-    HotTable
+    HotTable,
+    Toolbar
   },
-  data() {
+  data () {
     return {
       hotSettings: {
         // data: [[],[]], // 数据在这个里面,由数据填充表
@@ -45,7 +55,7 @@ export default {
             'separator': Handsontable.plugins.ContextMenu.SEPARATOR,
             'clear_custom': {
               name: '全部删除',
-              callback: function() {
+              callback: function () {
                 this.clear();
               }
             }
@@ -60,8 +70,11 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
+.header{
+  background: #fff;
+}
 .table{
   width: 100%;
-  height: 100%;
+  // height: 100%;
 }
 </style>

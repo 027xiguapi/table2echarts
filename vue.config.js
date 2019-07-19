@@ -1,4 +1,12 @@
 module.exports = {
+  devServer: {
+    open: process.platform === 'darwin',
+    host: '0.0.0.0',
+    port: 9999,
+    https: false,
+    hotOnly: false,
+    proxy: null
+  },
   publicPath: process.env.NODE_ENV === 'production' ? '/table2echarts/' : '/',
   productionSourceMap: false,
   css: {
@@ -14,7 +22,8 @@ module.exports = {
   configureWebpack: {
     externals:{
       'echarts': 'echarts',
-      'handsontable': 'Handsontable'
+      // 'handsontable': 'Handsontable',
+      // 'element-ui': 'ELEMENT'
     }
   }
 }

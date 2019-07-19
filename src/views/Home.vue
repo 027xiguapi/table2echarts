@@ -17,13 +17,13 @@ import Table from '@/components/Table';
 import Echarts from '@/components/Echarts';
 import { Multipane, MultipaneResizer } from 'vue-multipane';
 export default {
-    name: 'home',
-    components: {
-        Table,
-        Echarts,
-        Multipane,
-        MultipaneResizer,
-    },
+  name: 'home',
+  components: {
+    Table,
+    Echarts,
+    Multipane,
+    MultipaneResizer,
+  },
 };
 </script>
 
