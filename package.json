@@ -17,7 +17,8 @@
     "vue": "^2.6.10",
     "vue-multipane": "^0.9.5",
     "vue-router": "^3.0.3",
-    "vuex": "^3.0.1"
+    "vuex": "^3.0.1",
+    "xlsx": "^0.14.4"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.9.0",
@@ -44,8 +45,14 @@
     ],
     "rules": {
       "no-console": 0,
-      "space-before-function-paren": [2, "always"],
-      "space-in-parens": [2, "never"]
+      "space-before-function-paren": [
+        2,
+        "always"
+      ],
+      "space-in-parens": [
+        2,
+        "never"
+      ]
     },
     "parserOptions": {
       "parser": "babel-eslint"

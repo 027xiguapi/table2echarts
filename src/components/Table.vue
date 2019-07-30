@@ -4,15 +4,16 @@
   </div> -->
   <el-container>
     <el-header height='110' class="header">
-      <Toolbar></Toolbar>
+      <Toolbar :tableData="tableData" @reset="reset" @getXlsxJson='getXlsxJson'></Toolbar>
     </el-header>
     <el-main>
-      <hot-table :settings="hotSettings"></hot-table>
+      <hot-table ref="hotTable" :root="root" :data="tableData" :settings="hotSettings" width="100%" height="100%"></hot-table>
     </el-main>
   </el-container>
 </template>
 
 <script>
+import XLSX from 'xlsx'
 import { HotTable } from '@handsontable/vue';
 import Toolbar from '@/components/Table/Toolbar';
 import Handsontable from 'handsontable';
@@ -26,13 +27,15 @@ export default {
   },
   data () {
     return {
+      root: 'hot-table',
+      tableData: [[]],
       hotSettings: {
-        // data: [[],[]], // 数据在这个里面,由数据填充表
+        // data: [[]], // 数据在这个里面,由数据填充表
         licenseKey: 'non-commercial-and-evaluation',
-        startRows: 20, //初始行列数
-        startCols: 18,
-        minRows: 20, //最小行列
-        minCols: 18,
+        startRows: 40, //初始行列数
+        startCols: 30,
+        minRows: 40, //最小行列
+        minCols: 30,
         rowHeaders: true, //行表头
         colHeaders: true, //自定义列表头or 布尔值
         minSpareCols: 1, //列留白
@@ -45,7 +48,7 @@ export default {
         //右键效果
         fillHandle: true, //选中拖拽复制 possible values: true, false, "horizontal", "vertical"
         fixedColumnsLeft: 0, //固定左边列数
-        fixedRowsTop: 1, //固定上边行数
+        fixedRowsTop: 0, //固定上边行数
         contextMenu: { //右键
           items: {
             'row_above': {
@@ -63,8 +66,18 @@ export default {
         },
         updatePlayerList: null
       }
-      };
+    };
+  },
+  methods: {
+    reset (){
+      console.log(this.tableData)
+      this.$refs.hotTable.hotInstance.loadData([[]])
     },
+    getXlsxJson (tabJson){
+      // tabJson[0] && (this.hotSettings.data = tabJson[0].sheet)
+      tabJson[0] && this.$refs.hotTable.hotInstance.loadData(tabJson[0].sheet)
+    },
+  }  
 }
 </script>
 
