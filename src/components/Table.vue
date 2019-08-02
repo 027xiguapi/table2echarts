@@ -13,12 +13,11 @@
 </template>
 
 <script>
-import XLSX from 'xlsx'
 import { HotTable } from '@handsontable/vue';
 import Toolbar from '@/components/Table/Toolbar';
 import Handsontable from 'handsontable';
-import 'handsontable/languages/zh-CN';
-import '../../node_modules/handsontable/dist/handsontable.full.css';
+// import 'handsontable/languages/zh-CN';
+// import '../../node_modules/handsontable/dist/handsontable.full.css';
 export default {
   name: 'Table',
   components: {
